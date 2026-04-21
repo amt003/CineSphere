@@ -452,15 +452,6 @@ npm run build
 
 ---
 
-## 🤝 Contributing
-
-1. Fork repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
----
 
 ## 📝 Environment Variables Reference
 
@@ -485,23 +476,6 @@ VITE_API_URL         # Backend API URL
 VITE_SOCKET_URL      # Socket.io server URL
 ```
 
----
-
-## 📞 Support
-
-For issues and questions:
-
-- Create GitHub Issue
-- Check [TESTING_GUIDE.md](./TESTING_GUIDE.md) for troubleshooting
-- Check [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for deployment issues
-
----
-
-## 📄 License
-
-MIT License - See LICENSE file for details
-
----
 
 ## 🎉 Getting Help
 
@@ -522,13 +496,4 @@ F12 → Console & Network tabs
 # Socket.io
 DevTools → Network → WS tab for WebSocket messages
 ```
-
----
-
-**Status**: ✅ **Production Ready**  
-**Last Updated**: 2024  
-**Version**: 1.0.0
-
----
-
 ## 🎬 CineSphere - Making Cinema Booking Seamless 🎬

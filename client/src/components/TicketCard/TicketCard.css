@@ -1,0 +1,471 @@
+/* TicketCard.css - Animated Digital Ticket Styling */
+
+.ticket-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 1rem;
+  border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+/* 3D Flip Animation */
+.ticket-flip-wrapper {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  height: 600px;
+  cursor: pointer;
+  position: relative;
+}
+
+.ticket-flip-wrapper.flipped {
+  transform: rotateY(180deg);
+}
+
+.ticket-front,
+.ticket-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 2px solid #06b6d4;
+  border-radius: 1rem;
+  box-shadow: 0 20px 60px -10px rgba(6, 182, 212, 0.3);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: rotateY(0deg);
+  animation: slideInTicket 0.6s ease-out;
+}
+
+.ticket-back {
+  transform: rotateY(180deg);
+}
+
+.ticket-flip-wrapper.flipped .ticket-back {
+  animation: slideInTicketBack 0.6s ease-out;
+}
+
+@keyframes slideInTicket {
+  from {
+    opacity: 0;
+    transform: rotateY(-20deg) translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+  }
+}
+
+@keyframes slideInTicketBack {
+  from {
+    opacity: 0;
+    transform: rotateY(200deg) translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(180deg) translateX(0);
+  }
+}
+
+/* Ticket Header */
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed rgba(6, 182, 212, 0.3);
+}
+
+.theatre-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #06b6d4;
+  letter-spacing: 0.05em;
+}
+
+.ticket-badge {
+  padding: 0.375rem 0.75rem;
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: white;
+  font-weight: bold;
+  font-size: 0.75rem;
+  border-radius: 0.375rem;
+  letter-spacing: 0.1em;
+}
+
+/* Movie Section */
+.ticket-movie-section {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(6, 182, 212, 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.movie-poster {
+  flex-shrink: 0;
+  width: 80px;
+  height: 120px;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  border: 2px solid rgba(6, 182, 212, 0.3);
+}
+
+.poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #f1f5f9;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.movie-meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.rating {
+  padding: 0.25rem 0.5rem;
+  background: rgba(234, 179, 8, 0.2);
+  color: #fbbf24;
+  font-weight: bold;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.duration {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+}
+
+.language {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Ticket Details */
+.ticket-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-item .label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.detail-item .value {
+  font-size: 0.95rem;
+  color: #f1f5f9;
+  font-weight: 500;
+}
+
+.seats-value {
+  color: #06b6d4;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+/* Ticket Price Section */
+.ticket-price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.1) 0%,
+    rgba(6, 182, 212, 0.05) 100%
+  );
+  border-radius: 0.5rem;
+  border: 2px solid rgba(6, 182, 212, 0.2);
+  margin-bottom: 1rem;
+}
+
+.ticket-price-section .label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.price {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #06b6d4;
+}
+
+/* Ticket Footer */
+.ticket-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 2px dashed rgba(6, 182, 212, 0.3);
+  margin-top: auto;
+}
+
+.booking-id {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+.flip-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.flip-button:hover {
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 8px 16px -2px rgba(6, 182, 212, 0.4);
+}
+
+/* QR Section (Back of Ticket) */
+.ticket-back {
+  justify-content: center;
+  align-items: center;
+}
+
+.qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.qr-section h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #06b6d4;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.qr-code-wrapper {
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 0.75rem;
+  border: 2px solid rgba(6, 182, 212, 0.2);
+  animation: qrPulse 2s ease-in-out infinite;
+}
+
+@keyframes qrPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(6, 182, 212, 0.6);
+  }
+}
+
+.qr-code-wrapper svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.qr-text {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+}
+
+.booking-reference {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+.flip-back {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+
+/* Action Buttons */
+.ticket-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid rgba(6, 182, 212, 0.3);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  color: white;
+  border-color: #0891b2;
+}
+
+.download-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -2px rgba(6, 182, 212, 0.4);
+}
+
+.download-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.print-btn {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border-color: #7c3aed;
+}
+
+.print-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -2px rgba(139, 92, 246, 0.4);
+}
+
+.share-btn {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  color: white;
+  border-color: #db2777;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -2px rgba(236, 72, 153, 0.4);
+}
+
+/* Ticket Info */
+.ticket-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(34, 197, 94, 0.05);
+  border-left: 4px solid #22c55e;
+  border-radius: 0.375rem;
+}
+
+.info-text {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .ticket-card-container {
+    padding: 1rem;
+  }
+
+  .ticket-flip-wrapper {
+    height: 500px;
+  }
+
+  .ticket-front,
+  .ticket-back {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .ticket-movie-section {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+  }
+
+  .movie-poster {
+    width: 70px;
+    height: 100px;
+  }
+
+  .ticket-details {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+
+  .ticket-actions {
+    gap: 0.5rem;
+  }
+
+  .action-button {
+    padding: 0.625rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .flip-button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+}
